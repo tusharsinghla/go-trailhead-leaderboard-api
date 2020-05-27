@@ -170,13 +170,13 @@ func getApexExecResponse(w http.ResponseWriter, r *http.Request, messagePayload 
 	
 	res, err := client.Do(req)
 	body, err := ioutil.ReadAll(res.Body)
-	
-	fmt.Println("Test")
 
 	var trailheadData TrailheadData
 	json.Unmarshal(body, &trailheadData)
 
 	defer res.Body.Close()
+	
+	fmt.Println(trailheadData)
 
 	return trailheadData
 }
