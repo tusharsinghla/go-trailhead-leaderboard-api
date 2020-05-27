@@ -156,13 +156,18 @@ func getApexExecResponse(w http.ResponseWriter, r *http.Request, messagePayload 
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, payload)
 
-	fmt.Println("1")
+	fmt.Println("getApexExecResponse1")
+	fmt.Println(url)
+	fmt.Println(method)
+	fmt.Println(payload)
 	
 	if err != nil {
 		fmt.Println(err)
 	}
 	
-	fmt.Println("2")
+	fmt.Println(err)
+	
+	fmt.Println("getApexExecResponse2")
 
 	req.Header.Add("Accept", "*/*")
 	req.Header.Add("Accept-Language", "en-US,en;q=0.5")
@@ -172,17 +177,18 @@ func getApexExecResponse(w http.ResponseWriter, r *http.Request, messagePayload 
 	req.Header.Add("DNT", "1")
 	req.Header.Add("Connection", "keep-alive")
 	
-	fmt.Println("3")
+	fmt.Println("getApexExecResponse3")
 	
 	res, err := client.Do(req)
 	body, err := ioutil.ReadAll(res.Body)
 	
-	fmt.Println("4")
+	fmt.Println(res.Body)
+	fmt.Println("getApexExecResponse4")
 
 	var trailheadData TrailheadData
 	json.Unmarshal(body, &trailheadData)
 	
-	fmt.Println("5")
+	fmt.Println("getApexExecResponse5")
 
 	defer res.Body.Close()
 
