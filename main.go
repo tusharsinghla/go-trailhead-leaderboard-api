@@ -183,7 +183,9 @@ func getApexExecResponse(w http.ResponseWriter, r *http.Request, messagePayload 
 	body, err := ioutil.ReadAll(res.Body)
 	
 	fmt.Println(req)
+	fmt.Println(req.Body)
 	fmt.Println(res)
+	fmt.Println(res.Body)
 	fmt.Println("getApexExecResponse4")
 
 	var trailheadData TrailheadData
