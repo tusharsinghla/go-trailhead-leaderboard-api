@@ -167,8 +167,6 @@ func getApexExecResponse(w http.ResponseWriter, r *http.Request, messagePayload 
 	req.Header.Add("Origin", "https://trailblazer.me")
 	req.Header.Add("DNT", "1")
 	req.Header.Add("Connection", "keep-alive")
-
-	logger.Print("Hello, log file!")
 	
 	res, err := client.Do(req)
 	body, err := ioutil.ReadAll(res.Body)
