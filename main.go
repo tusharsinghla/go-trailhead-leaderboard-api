@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"log"
 
 	"github.com/gorilla/mux"
 )
@@ -170,6 +171,8 @@ func getApexExecResponse(w http.ResponseWriter, r *http.Request, messagePayload 
 	
 	res, err := client.Do(req)
 	body, err := ioutil.ReadAll(res.Body)
+	
+	logger.Print("Hello, log file!")
 
 	var trailheadData TrailheadData
 	json.Unmarshal(body, &trailheadData)
